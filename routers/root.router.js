@@ -9,5 +9,7 @@ rootRouter.get('/',(request,respone,next)=>{
 })
 rootRouter.use('/order',orderRouter)
 rootRouter.use(`/like`,likeRouter)
+
+
 rootRouter.use('/rate',rateRouter)
 export default rootRouter 

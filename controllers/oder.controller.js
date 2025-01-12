@@ -1,9 +1,18 @@
+
+import { responeSuccess } from "../common/helpers/respone.helper.js"
 import oderService from "../service/oder.service.js"
 
 
 export const oderController={
     oderList :async(req,res,next)=>{
-        const oders = await(oderService).oderList()
-        res.json(oders)
+        try {
+            const oders = await(oderService).oderList()
+            const resData=responeSuccess(oders,`Get list orders successfully`,200)
+            res.status(resData.code).json(resData)
+        } 
+        catch (error) {
+            next(error)
+        }
+
     }
 }
